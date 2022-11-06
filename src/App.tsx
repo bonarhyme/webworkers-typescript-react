@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Loader from "./components/Loader";
 import Pagination from "./components/Pagination";
 import Table from "./components/Table";
@@ -51,7 +51,7 @@ const App = () => {
     page: 1,
   });
 
-  const handlePage = (userSelectedPage: number) => {
+  const handlePageNumber = (userSelectedPage: number) => {
     if (window.Worker) {
       const request = {
         action: processList.getData,
@@ -154,7 +154,7 @@ const App = () => {
               page={profileList.page}
               pages={lengthCount.value / listPageSize}
               pageClick={(pageNumber) => {
-                handlePage(pageNumber);
+                handlePageNumber(pageNumber);
               }}
               prevHandler={() => prevHandler(profileList.page)}
               nextHandler={() =>
